@@ -27,8 +27,9 @@ if OSNAME == 'Linux':
     extra_ldflags = pkgconfig("--libs").split()
 elif OSNAME == 'Darwin':
     define_macros = [('WEBVIEW_COCOA', '1')]
-    extra_cflags = ""
-    extra_ldflags = ['-framework', 'CoreAudio']
+    #extra_cflags = ""
+    extra_cflags = ['-ObjC', '-framework', 'Cocoa', '-framework', 'WebKit', '-framework', 'CoreAudio']
+    extra_ldflags = ['-ObjC', '-framework', 'Cocoa', '-framework', 'WebKit', '-framework', 'CoreAudio']
 elif OSNAME == 'Windows':
     define_macros = [('WEBVIEW_WINAPI', '1')]
     extra_cflags = ""
